@@ -49,7 +49,9 @@
      $ git config --global alias.br branch
      ```
     [ссылка-пример с GitHub](https://gist.github.com/pksunkara/988716)
+    
 ![](png1.png)
+
 * ___Работаем с гит репозитрием локально.___ 
     _1. Создаем локальный гит репозиторий._
      ```
