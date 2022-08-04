@@ -1,5 +1,7 @@
 ![](https://img.shields.io/github/contributors/cdnjs/cdnjs.svg)![](	https://img.shields.io/github/license/mashape/apistatus.svg) ![](https://img.shields.io/sourcegraph/rrc/github.com/gorilla/mux.svg)
+
 ####**Preparing**
+
 + Добавляем отдельного юзера для экспериментов.
 ```bash
 # adduser testsecurity
@@ -25,7 +27,7 @@
 # grep testsecurity /etc/group
 # nano /etc/sudoers
 ```
->Первый параметр указывает на имя пользователя — в данном случае пользователь root.
+>  Первый параметр указывает на имя пользователя — в данном случае пользователь root.
 Первый «ALL» указывает, что правило применимо ко всем хостам.
 Второй «ВСЕ» указывает, что пользователь root может выполнять все команды как все пользователи.
 Третий «ВСЕ» показывает, что пользователь root может выполнять все команды как все группы пользователей.
@@ -70,6 +72,7 @@
 >PASS_MAX_DAYS : максимальное количество дней, в течение которых можно использовать пароль. Если пароль старше этого значения, смена пароля будет принудительной.
 PASS_MIN_DAYS : Минимальное количество дней между сменами пароля. Любые попытки изменить пароль раньше, чем это, будут отклонены.
 PASS_WARN_AGE : Количество дней предупреждения до истечения срока действия пароля. Ноль означает, что предупреждение выдается только в день истечения срока действия, отрицательное значение означает, что предупреждение не выдается. Если не указано, предупреждения не будет.
+
 
 ![](photo3.png)
 
@@ -131,9 +134,15 @@ retry - сколько раз пользователь может повтори
 ![](photo7.png)
 
 ***Полезные ссылки для меня:***
+
 https://www.linuxfordevices.com/tutorials/linux/linux-password-policies
+
 https://www.cyberciti.biz/tips/linux-set-default-password-expiry-for-all-new-users.html
+
 https://habr.com/ru/company/otus/blog/448996/
+
 https://upcloud.com/resources/tutorials/manage-linux-user-account-security
+
 https://www.cyberciti.biz/tips/how-to-linux-prevent-the-reuse-of-old-passwords.html
+
 https://www.tecmint.com/lock-user-accounts-after-failed-login-attempts-in-linux/
