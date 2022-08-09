@@ -3,6 +3,7 @@
 [![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)  
 
 ###***Configure Software RAID on Linux***
+
 В самом начале стоит провести подготовку и добавить в SATA контролер на VirtualBox дополнительный виртуальный диск для Proxmox ёмкостью на 50ГБ. Проверить можно командой `#lsblk`
 
 ![](photo1.png)
