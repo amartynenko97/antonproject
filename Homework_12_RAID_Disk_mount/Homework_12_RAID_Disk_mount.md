@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) ![](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white) ![](https://img.shields.io/badge/GNU%20Bash-4EAA25?style=for-the-badge&logo=GNU%20Bash&logoColor=white)
 ![](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white) ![](https://img.shields.io/badge/Debian-A81D33?style=for-the-badge&logo=debian&logoColor=white) ![](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-[![Bash Shell](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)  
+[![](https://badges.frapsoft.com/bash/v1/bash.png?v=103)](https://github.com/ellerbrock/open-source-badges/)  
 
 ###Configure Software RAID on Linux
 В самом начале стоит провести подготовку и добавить в SATA контролер на VirtualBox дополнительный виртуальный диск для Proxmox ёмкостью на 50ГБ. Проверить можно командой `#lsblk`
@@ -154,7 +154,7 @@ unused devices: <none>
 
 Чтобы автоматически устанавливать квоту для новых пользователей, нужно настроить шаблонного пользователя (с помощью `edquota` или `setquota`) и указать его имя пользователя в переменной **QUOTAUSER** в файле `/etc/adduser.conf`. Эта настройка квоты будет автоматически применяться ко всем новым пользователям, созданным с помощью команды **adduser**.
 
-###Итог
+### Итог
 
 ![](photo14.png)
 
