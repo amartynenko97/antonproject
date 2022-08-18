@@ -1,4 +1,4 @@
-### ***Generate an SSH Key Pair and Upload Your Public Key***
+### ***<mark style="background-color: #00BFFF">Generate an SSH Key Pair and Upload Your Public Key</mark>***
 
 У меня есть две виртуалки: одна -Ubuntu на сетевом мосте, вторая Debian на NAT. Устанавливаю соединение SSH с DEBIAN на UBUNTU. Первое что делаю это генерирую пару ключей с помощью утилиты **keygen**, с метедом шифрования **RSA**
 
@@ -45,7 +45,7 @@ Now try logging into the machine, with:   "ssh -p '22' 'anton@192.168.1.6'"
 and check to make sure that only the key(s) you wanted were added.
 ```
 
-**Второй способ скопировать ключи, через утилиту scp**
+***<mark style="background-color: #FF00FF">Второй способ скопировать ключи, через утилиту scp</mark>***
 
 + Подключится к серверу по его IP-адресу через SSH с пользователем, которому я хочу добавить ключ:
 
@@ -73,7 +73,7 @@ $ scp ~/.ssh/id_rsa.pub -p 22 anton@127.0.0.1:~/.ssh/authorized_keys
 
 ___
 
-<span style="color:red">Конечно же у меня с первого раза не получилось установить соединение по `RSAkey`, ключи не могли друг друга найти, а по паролю все получалось. Я уже даже попробывал с другой виртулалки сделать (IP 192.168.1.7). Потом нашел статью и там было сказано что в конфигурации клиента, SSH получает данные из разных источников в своей очередности (сначала он видит файл конфигурации клиента пользователя `~/.ssh/config`, а уже потом общесистемный файл конфигурации клиента `/etc/ssh/ssh_config`) я создал файл `config` вот по єтой инструкции https://kb.iu.edu/d/aews и аунтификация по ключам прошла успешно.  </span>
+<span style="color:red;font-weight:700">Конечно же у меня с первого раза не получилось установить соединение по `RSAkey`, ключи не могли друг друга найти, а по паролю все получалось. Я уже даже попробывал с другой виртулалки сделать (IP 192.168.1.7). Потом нашел статью и там было сказано что в конфигурации клиента, SSH получает данные из разных источников в своей очередности (сначала он видит файл конфигурации клиента пользователя `~/.ssh/config`, а уже потом общесистемный файл конфигурации клиента `/etc/ssh/ssh_config`) я создал файл `config` вот по этой инструкции https://kb.iu.edu/d/aews и аунтификация по ключам прошла успешно.  </span>
 
 ``` shell
 anton@debian:~/.ssh/old_keys$ ssh anton@192.168.1.6
@@ -111,7 +111,7 @@ $ nano /ect/ssh/sshd_config
 
 ___
 
-### ***Use SSHFS to Mount Remote File Systems Over SSH***
+### ***<mark style="background-color: #00BFFF">Use SSHFS to Mount Remote File Systems Over SSH</mark>***
 
 + установил из пакетов клиент SSHFS (Secure Shell FileSystem) на свою локальную машину.
 
@@ -159,7 +159,7 @@ $ sshfs -o allow_other,IdentityFile=~/.ssh/old_keys/host2_key anton@192.168.1.6:
 
 ___
 
-***Полезные ссылки для меня:***
+***<mark style="background-color: #00BFFF">Полезные ссылки для меня:</mark>***
 
 1. https://www.tecmint.com/sshfs-mount-remote-linux-filesystem-directory-using-ssh/
 
