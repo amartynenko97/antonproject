@@ -83,12 +83,12 @@ $ readlink /proc/$$/exe
 
  *У меня оболочка bash по дефолту поставлена в системе, можно оптимизировать и выставлять, есть три способа:*
  
- ```diff
- - # vi /etc/passwd - вручную отредактировать в файле требуемую оболочку для определенного пользователя.
+```diff
+- # vi /etc/passwd - вручную отредактировать в файле требуемую оболочку для определенного пользователя.
 
- - # chsh --shell /bin/sh anton - утилитой командной строки для изменения оболочки входа в систему.
+- # chsh --shell /bin/sh anton - утилитой командной строки для изменения оболочки входа в систему.
 
- - # usermod --shell /bin/bash anton - утилитой для изменения данных учетной записи пользователя, хранящихся в файле /etc/passwd.
+- # usermod --shell /bin/bash anton - утилитой для изменения данных учетной записи пользователя, хранящихся в файле /etc/passwd.
 ```
 
 ***6. Сравнение переменных окружения***
@@ -114,4 +114,19 @@ $ readlink /proc/$$/exe
 
 `$ env` - будет отображать только список переменных среды, которые были экспортированы, и не будет отображать все переменные bash. У меня вывод схожий с выводом 
 `printenv`
+
+![](./media/photo5.png)
+
+
+___
+
+***<mark style="background-color: #00BFFF">Полезные ссылки для меня:</mark>***
+
+1. https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux
+
+2. https://www.cyberciti.biz/faq/linux-list-all-environment-variables-env-command/
+
+3. https://habr.com/ru/post/47163/
+
+4. https://www.cyberciti.biz/tips/how-do-i-find-out-what-shell-im-using.html
 
