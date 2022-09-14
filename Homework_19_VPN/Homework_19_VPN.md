@@ -81,7 +81,7 @@ $ openvpn --client --config /etc/openvpn/client.conf
 $ sudo systemctl start openvpn@client
 ```
 
-+ Так же нужно не забыть открыть порт для доступа из частной сети к VPN тунелю.
++ Так же нужно не забыть открыть порт для доступа из частной сети к VPN тунелю и включить  `net.ipv4 ip_forward=1` на машине в клауде.
 
 
 ![](./media/photo6.png)
