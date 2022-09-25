@@ -35,7 +35,7 @@ $ git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
 
 ![](./media/photo2.png)
 
-+ *3. Стянуть базовый минимальный образ на базе которого будет выполнятся второй этап сборки с копированием артефакта `jar`*
++ *3. Стянуть базовый минимальный образ на базе которого будет выполнятся второй этап сборки с копированием артефакта `war`*
 
 ```sh
 $ docker pull adoptopenjdk/openjdk11:jdk-11.0.16.1_1-alpine-slim
