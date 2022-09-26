@@ -90,3 +90,25 @@ $ docker run -it javaapp:1
 ![](./media/photo3.png)
 
 *Выдает ошибку при запуске.*
+
+___
+
+#### ***Полезные ссылки для меня:***
+
+*1. https://habr.com/ru/post/77382/*
+
+*2. https://www.digitalocean.com/community/tutorials/maven-commands-options-cheat-sheet*
+
+*3. https://blog.pavelsklenar.com/spring-boot-run-and-build-in-docker/*
+
+*4. https://habr.com/ru/post/552494/*
+
+*5. https://www.baeldung.com/ops/docker-cache-maven-dependencies*
+
+*6. https://codefresh.io/blog/java_docker_pipeline/*
+
+*7. https://spring.io/guides/topicals/spring-boot-docker/*
+
+*8. https://www.javacodegeeks.com/2017/04/creating-smaller-java-image-using-docker-multi-stage-build.html*
+
+*9. https://blog.bitsrc.io/a-guide-to-docker-multi-stage-builds-206e8f31aeb8*
