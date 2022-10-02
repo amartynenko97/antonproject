@@ -91,8 +91,38 @@ $ docker run -it javaapp:1
 
 *Выдает ошибку при запуске.*
 
-___
+*Пытался исправить в фале `pom.xml` добавив плгины который будет работать с архивом `.war`. Не заработало. В файле pom.xml отсутсвуют зависимоти касающеся файла `MANIFEST.MF` (и нет и самого файла в репо) а так же должен присутсвовать запись `Main-Class` атрибута чтобы java могла узнать какой класс использовать при выполнении `.jar`
 
+*Файл `MANIFEST.MF` должен содержать:*
+
+```html
+Manifest-Version: the version of the Manifest file.
+Built-By: your PC name.
+Build-Jdk: the JDK version installed in your machine.
+Created-By: the plugin name used in IDE.
+```
+
+*В Файл `pom.xml` добавить:*
+
+```html
+<build>  
+    <plugins>  
+        <plugin>  
+            <!-- Build an executable JAR -->  
+            <groupId>org.apache.maven.plugins</groupId>  
+            <artifactId>maven-jar-plugin</artifactId>  
+            <version>3.1.0</version>  
+            <configuration>  
+                <archive>  
+                    <manifest>  
+                        <mainClass>com.linuxpip.AppMain</mainClass>  
+                    </manifest>  
+                </archive>  
+            </configuration>  
+        </plugin>  
+    </plugins>  
+</build>  
+```
 #### ***Полезные ссылки для меня:***
 
 *1. https://habr.com/ru/post/77382/*
