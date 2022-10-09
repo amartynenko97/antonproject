@@ -55,7 +55,7 @@ $ aws configure list-profiles
 
 ![](./media/photo9.png)
 
-+ *Создать 3 `ЕС2` (Amazon Elastic Compute Cloud) в `Console Home - EC2 - Launch Instance`  позволяющий пользователю арендовать виртуальный сервер в разных `avlability zone` (`us-east-2c, us-east-2b, us-east-2a`) и не запускать*
++ *Создать 3 `ЕС2` (Amazon Elastic Compute Cloud) в `Console Home - EC2 - Launch Instance`  позволяющий пользователю арендовать виртуальный сервер в разных `avlability zone` (`us-east-2c, us-east-2b, us-east-2a`)*
 
 ![](./media/photo10.png)
 
