@@ -89,25 +89,28 @@ $ aws configure list-profiles
 
 ```shell
 #!/bin/bash
-yum -y update 
-yum -y install httpd
-aws s3 cp s3://antoha.storage/index1.html /var/www/html/index1.html
-sudo service httpd start
-chkconfig httpd on
+sudo su
+yum update -y
+yum install httpd -y
+aws s3 cp s3://antoha.storage/index1.html /var/www/html/index.html
+systemctl enable httpd
+systemctl start httpd
 
 #!/bin/bash
-yum -y update 
-yum -y install httpd
-aws s3 cp s3://antoha.storage/index2.html /var/www/html/index2.html
-sudo service httpd start
-chkconfig httpd on
+sudo su
+yum update -y
+yum install httpd -y
+aws s3 cp s3://antoha.storage/index2.html /var/www/html/index.html
+systemctl enable httpd
+systemctl start httpd
 
 #!/bin/bash
-yum -y update 
-yum -y install httpd
-aws s3 cp s3://antoha.storage/index3.html /var/www/html/index3.html
-sudo service httpd start
-chkconfig httpd on
+sudo su
+yum update -y
+yum install httpd -y
+aws s3 cp s3://antoha.storage/index3.html /var/www/html/index.html
+systemctl enable httpd
+systemctl start httpd
 ```
 
 *Так же, есть вариант с синхронизацией двух директорий на `S3` и `EC2`*
@@ -118,7 +121,6 @@ chkconfig httpd on
 sudo su
 yum update -y
 yum install httpd -y
-yum install -y awscli
 chkconfig httpd on
 cd /var/www/html
 aws s3 sync s3://antoha.storage/какая-то папка /var/www/html
@@ -143,10 +145,91 @@ service httpd start
 
 ![](./media/photo16.png)
 
+
++ *Так же, нужно не забыть сделать `S3 Bucket` публичным добавить `Policy` в формате `JSON` и так же разрешаем запросы HTTP к корзине из браузера, добавляем `CORS`. ПО `Object URL` можно проверить как наша страничка отображается в браузере.*
+
+![](./media/photo17.png)
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::antoha.storage/*"
+        }
+    ]
+}
+```
+```json
+[
+    {
+        "AllowedHeaders": [
+            "Authorization",
+            "Content-Length"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [],
+        "MaxAgeSeconds": 3000
+    }
+]
+```
+
++ *После того как я понял что у меня без авторизации каждой машины с помощью креденшелов не запуститься команда `aws copy` пришла идея попробовать другой скрипт без авторизации, либо сделать `shapshot` c установленым `yum install -y awscli` и авторизированым под рут юзера `aws configure`*
+
+``` bash
 #!/bin/bash
 sudo su
 yum update -y
 yum install httpd -y
-chkconfig httpd on
-aws s3 cp s3://antoha.storage/index1.html /var/www/html/index1.html
-service httpd start
+systemctl enable httpd
+systemctl start httpd
+curl https://s3.us-east-2.amazonaws.com/antoha.storage/index1.html --output /var/www/html/index.html
+```
+
+*Обратить внимание, что snaphot делается с готового инстанса и сохраняется в образы `AMI`, а потом с `AMI from catalog` делаются мои виртуалки куда я прописываю `userdata`*
+
+![](./media/photo18.png)
+
+![](./media/photo19.png)
+
+![](./media/photo20.png)
+
+
+*Запуск с `userdata`*
+
+![](./media/photo21.png)
+
+
++ ***Финальная проверка работоспособности `LoadBalancer`. `HealthCheck` в `target groups` пройден. При обращении на `LoadBalancer` выдает разные страницы.***
+
+
+![](./media/photo22.png)
+
+
+![](./media/photo23.png)
+
+____
+
+#### ***Полезные ссылки для меня:***
+
+*1. https://docs.aws.amazon.com/cli/v1/userguide/install-linux-al2017.html*
+
+*2. https://aws.amazon.com/ru/premiumsupport/knowledge-center/s3-locate-credentials-error/*
+
+*3. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html*
+
+*4. https://bobbyhadz.com/blog/aws-s3-allow-public-read-access*
+
+*5. https://www.youtube.com/watch?v=P_ae2pW-DpY*
+
+*6. https://www.youtube.com/watch?v=dhRwKPrum44*
+
+*7. https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html*
