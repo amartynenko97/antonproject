@@ -535,6 +535,8 @@ output "RDS_ENDPOINT" {
 
 + *Дальше удаляем созданые ресурсы `terraform destroy` Так же можно заметить что удалился фаайл состояния с которого `terraform` читает что нам нужно было создать `terrform.tfstate`*
 
+***Destroy complete! Resources: 39 destroyed.***
+
 #### ***Полезные ссылки для меня:***
 
 *1. https://rotadev.com/how-do-i-create-an-ssh-key-in-terraform-dev/*
