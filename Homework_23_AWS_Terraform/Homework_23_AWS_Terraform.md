@@ -409,13 +409,9 @@ resource "aws_db_instance" "rds-instance" {
 ```sh
 variable "access_key" {
       description = "Access key to AWS console"
-      default     = "AKIASFHGA2COGAB7RAJU"
-      type        = string
 }
 variable "secret_key" {
       description = "Secret key to AWS console"
-      default     = "cbyJAml6QwfYxfz6EdDH9PFpaDQk0yW4oyOZoVRT"
-      type        = string
 }
 
 variable "aws_region" {
